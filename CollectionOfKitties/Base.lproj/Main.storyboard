@@ -21,19 +21,42 @@
                                 <rect key="frame" x="16" y="100" width="343" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iT4-bn-0wA">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="101" height="101"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell_reuseId" id="iXw-aH-SUV" customClass="CollectionViewCell" customModule="CollectionOfKitties" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvG-L9-Dom">
+                                                    <rect key="frame" x="28" y="75.5" width="45" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ziy-JL-KjI">
+                                                    <rect key="frame" x="5" y="5" width="91" height="66"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="EvG-L9-Dom" firstAttribute="top" secondItem="ziy-JL-KjI" secondAttribute="bottom" constant="5" id="1HF-pX-wGs"/>
+                                            <constraint firstAttribute="trailing" secondItem="ziy-JL-KjI" secondAttribute="trailing" constant="5" id="BjX-If-XIx"/>
+                                            <constraint firstAttribute="bottom" secondItem="EvG-L9-Dom" secondAttribute="bottom" constant="5" id="IEA-GZ-suF"/>
+                                            <constraint firstItem="ziy-JL-KjI" firstAttribute="top" secondItem="iXw-aH-SUV" secondAttribute="top" constant="5" id="RKn-MC-B8l"/>
+                                            <constraint firstItem="ziy-JL-KjI" firstAttribute="leading" secondItem="iXw-aH-SUV" secondAttribute="leading" constant="5" id="htO-Th-Kae"/>
+                                            <constraint firstItem="EvG-L9-Dom" firstAttribute="centerX" secondItem="iXw-aH-SUV" secondAttribute="centerX" id="sv6-SB-kKE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imgView" destination="ziy-JL-KjI" id="gRN-9D-F9V"/>
+                                            <outlet property="lblKittyName" destination="EvG-L9-Dom" id="BrC-Kg-Fzk"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -56,6 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

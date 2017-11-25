@@ -10,5 +10,5 @@ import UIKit
 
 public class Kitty{
     @objc dynamic var name: String = ""
-    
+    @objc dynamic var imagePath: String = ""
 }

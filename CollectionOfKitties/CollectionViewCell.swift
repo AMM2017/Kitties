@@ -9,5 +9,13 @@
 import UIKit
 
 public class CollectionViewCell : UICollectionViewCell{
+    static public let reuseId = "CollectionViewCell_reuseId"
     
+    @IBOutlet weak var lblKittyName: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    
+    public func configure(name: String, imgPath: String){
+        lblKittyName.text = name
+        imgView.image = UIImage(named: imgPath)
+    }
 }
