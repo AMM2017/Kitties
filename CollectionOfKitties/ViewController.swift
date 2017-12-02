@@ -44,7 +44,7 @@ extension ViewController{
             else {
                 fatalError("Type error")
             }
-        let model: Kitty = indexPath.item /* !!!!!!! */
+        let model: Kitty = kitties[indexPath.item]
         cell.configure(name: model.name, imgPath: model.imagePath)
         return cell
     }

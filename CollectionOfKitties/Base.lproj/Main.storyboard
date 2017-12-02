@@ -64,13 +64,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vYx-JW-Wt0"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="50" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgX-73-m0a">
+                                <rect key="frame" x="162" y="597" width="50" height="50"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pq9-QG-Uyh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1qD-Le-ERq"/>
                             <constraint firstItem="Pq9-QG-Uyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3Mw-Rr-Z6H"/>
+                            <constraint firstItem="FgX-73-m0a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Du-dp-3Ob"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pq9-QG-Uyh" secondAttribute="bottom" constant="100" id="HH2-rW-Uih"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pq9-QG-Uyh" secondAttribute="trailing" constant="16" id="IaR-o4-Deu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FgX-73-m0a" secondAttribute="bottom" constant="20" id="Wf0-bm-czv"/>
                             <constraint firstItem="Pq9-QG-Uyh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="c7M-gd-3d1"/>
                             <constraint firstItem="Pq9-QG-Uyh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.29999999999999999" id="cxR-Cz-Pit"/>
                         </constraints>
@@ -80,6 +85,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tph-Qy-Ohh">
+            <objects>
+                <viewController id="srJ-MI-Sum" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yrd-Ma-Mj9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ewK-kI-vzp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cwm-ff-okp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918" y="134"/>
         </scene>
     </scenes>
 </document>
