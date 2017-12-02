@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ViewController: UICollectionViewController{
+class ViewController: UICollectionViewController {
 
-    public var kitties: [Kitty] = []
+    //public var kitties: [Kitty] = []
+    public var kitties: Results<Kitty>!{
+        let realm = try! Realm()
+        return realm.objects(Kitty.self)
+    }
     
+    @IBAction func addBtnAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "AddViewSegue", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,7 +43,7 @@ extension ViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return kitties.count
+        return kitties?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,6 +55,10 @@ extension ViewController{
         let model: Kitty = kitties[indexPath.item]
         cell.configure(name: model.name, imgPath: model.imagePath)
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
     }
     
 }

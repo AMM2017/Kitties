@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-public class Kitty{
+public class Kitty: Object{
     @objc dynamic var name: String = ""
     @objc dynamic var imagePath: String = ""
 }
