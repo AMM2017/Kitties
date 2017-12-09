@@ -14,8 +14,8 @@ public class CollectionViewCell : UICollectionViewCell{
     @IBOutlet weak var lblKittyName: UILabel!
     @IBOutlet weak var imgView: UIImageView!
     
-    public func configure(name: String, imgPath: String){
+    public func configure(name: String, imgName: String){
         lblKittyName.text = name
-        imgView.image = UIImage(named: imgPath)
+        imgView.image = UIImage(named: imgName)
     }
 }

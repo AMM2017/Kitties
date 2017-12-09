@@ -11,5 +11,5 @@ import RealmSwift
 
 public class Kitty: Object{
     @objc dynamic var name: String = ""
-    @objc dynamic var imagePath: String = ""
+    @objc dynamic var imageName: String = ""
 }

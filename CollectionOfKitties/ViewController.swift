@@ -9,8 +9,10 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UICollectionViewController {
-
+class ViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+    var currentKitty: Kitty!
+    
     //public var kitties: [Kitty] = []
     public var kitties: Results<Kitty>!{
         let realm = try! Realm()
@@ -36,29 +38,39 @@ class ViewController: UICollectionViewController {
     }
 }
 
-extension ViewController{
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return kitties?.count ?? 0
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseId, for: indexPath)
             as? CollectionViewCell
             else {
                 fatalError("Type error")
-            }
+        }
         let model: Kitty = kitties[indexPath.item]
-        cell.configure(name: model.name, imgPath: model.imagePath)
+        cell.configure(name: model.name, imgName: model.imageName)
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentKitty = kitties[indexPath.item]
+        performSegue(withIdentifier: "DeleteViewSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DeleteViewSegue"{
+            guard let targetController = segue.destination as? DeleteViewController else {
+                fatalError("Segue error");
+            }
+            targetController.kitty = currentKitty
+        }
     }
     
 }

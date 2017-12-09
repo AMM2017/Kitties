@@ -87,7 +87,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="Pq9-QG-Uyh" id="2Ru-qw-gnS"/>
+                        <outlet property="collectionView" destination="Pq9-QG-Uyh" id="I3B-fn-k4i"/>
+                        <segue destination="V6h-WL-4XN" kind="show" identifier="DeleteViewSegue" id="wOU-Kw-MVP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,9 +113,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3w-xc-ZL1">
-                                <rect key="frame" x="144.5" y="599" width="86" height="48"/>
+                                <rect key="frame" x="145.5" y="599" width="84" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="btnDeletePressed:" destination="V6h-WL-4XN" eventType="touchUpInside" id="kpX-Jm-ghc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,6 +135,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MIh-CJ-Qpl"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="nz9-Ab-eWw" id="cJs-A1-g1e"/>
+                        <outlet property="nameLabel" destination="G4z-xp-cEL" id="FAL-us-PM1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0C-79-Wfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,17 +171,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bX1-Fx-5Dl">
-                                <rect key="frame" x="50" y="262" width="121" height="29"/>
+                                <rect key="frame" x="50" y="262" width="275" height="29"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Tom"/>
+                                    <segment title="Jerry"/>
+                                    <segment title="Richi"/>
                                 </segments>
+                                <connections>
+                                    <action selector="controlValueChanged:" destination="srJ-MI-Sum" eventType="valueChanged" id="NiP-GX-GMi"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miU-mP-hwM">
                                 <rect key="frame" x="161" y="599" width="53" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="btnAddPressed:" destination="srJ-MI-Sum" eventType="touchUpInside" id="KcJ-1M-fBW"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wj0-yP-iLU">
+                                <rect key="frame" x="50" y="330" width="275" height="247"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -183,14 +201,25 @@
                             <constraint firstItem="bX1-Fx-5Dl" firstAttribute="top" secondItem="MAd-uS-y1h" secondAttribute="bottom" constant="15" id="DDY-g7-YO9"/>
                             <constraint firstItem="MAd-uS-y1h" firstAttribute="leading" secondItem="LaD-VC-aTt" secondAttribute="leading" id="EDd-zO-w1f"/>
                             <constraint firstItem="Asr-S4-t1g" firstAttribute="leading" secondItem="LaD-VC-aTt" secondAttribute="leading" id="Eq3-bl-ktm"/>
+                            <constraint firstItem="wj0-yP-iLU" firstAttribute="leading" secondItem="MAd-uS-y1h" secondAttribute="leading" id="Fhd-dv-BsU"/>
                             <constraint firstItem="Asr-S4-t1g" firstAttribute="top" secondItem="LaD-VC-aTt" secondAttribute="bottom" constant="15" id="PLd-0h-h0U"/>
                             <constraint firstItem="MAd-uS-y1h" firstAttribute="top" secondItem="Asr-S4-t1g" secondAttribute="bottom" constant="40" id="Qek-yM-wFS"/>
                             <constraint firstItem="ewK-kI-vzp" firstAttribute="trailing" secondItem="Asr-S4-t1g" secondAttribute="trailing" constant="50" id="RIj-oh-kMW"/>
+                            <constraint firstItem="wj0-yP-iLU" firstAttribute="centerX" secondItem="yrd-Ma-Mj9" secondAttribute="centerX" id="Ufs-Vj-RK5"/>
+                            <constraint firstItem="ewK-kI-vzp" firstAttribute="bottom" secondItem="wj0-yP-iLU" secondAttribute="bottom" constant="90" id="ajU-4i-VfE"/>
+                            <constraint firstItem="ewK-kI-vzp" firstAttribute="trailing" secondItem="wj0-yP-iLU" secondAttribute="trailing" constant="50" id="brN-rf-ZOq"/>
+                            <constraint firstItem="ewK-kI-vzp" firstAttribute="trailing" secondItem="bX1-Fx-5Dl" secondAttribute="trailing" constant="50" id="dQu-aQ-ch4"/>
                             <constraint firstItem="bX1-Fx-5Dl" firstAttribute="leading" secondItem="MAd-uS-y1h" secondAttribute="leading" id="mHK-K5-Vto"/>
                             <constraint firstItem="LaD-VC-aTt" firstAttribute="leading" secondItem="ewK-kI-vzp" secondAttribute="leading" constant="50" id="qAR-i7-uQS"/>
+                            <constraint firstItem="wj0-yP-iLU" firstAttribute="top" secondItem="bX1-Fx-5Dl" secondAttribute="bottom" constant="40" id="uoT-lg-xFu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ewK-kI-vzp"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="wj0-yP-iLU" id="HiP-Ph-KJQ"/>
+                        <outlet property="imgSegmentedControl" destination="bX1-Fx-5Dl" id="uJ1-nM-sAz"/>
+                        <outlet property="nameTextField" destination="Asr-S4-t1g" id="Rdi-mq-YYp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cwm-ff-okp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,6 +227,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addBtn" width="612" height="612"/>
+        <image name="addBtn" width="16" height="16"/>
     </resources>
 </document>
