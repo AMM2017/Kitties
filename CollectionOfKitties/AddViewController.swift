@@ -18,37 +18,41 @@ class AddViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        imageView.image = UIImage(named: images[0].imgName)
+        newKitty.imageName = images[0].imgName
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    enum imgNames {
+    public enum imgNames {
         case Tom, Jerry, Richi
-        public name: String {
+        public var imgName: String {
             switch self{
             case .Tom:
-                return "cat256"
+                return "cat1_W80H60px"
             case .Jerry:
-                return "kitty1"
+                return "cat2_W80_H50px"
             case .Richi:
-                return "cat256"
+                return "cat3_W75H75px"
             }
         }
     }
     
+    let images: [imgNames] = [imgNames.Tom, imgNames.Jerry, imgNames.Richi]
+    
     @IBAction func controlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
             case 0:
-                imageView.image = UIImage(named: imgNames.Tom)
-                newKitty.imageName = imgNames.Tom
+                imageView.image = UIImage(named: images[0].imgName)
+                newKitty.imageName = images[0].imgName
             case 1:
-                imageView.image = UIImage(named: imgNames.Jerry)
-                newKitty.imageName = imgNames.Jerry
+                imageView.image = UIImage(named: images[1].imgName)
+                newKitty.imageName = images[1].imgName
             case 2:
-                imageView.image = UIImage(named: imgNames.Richi)
-                newKitty.imageName = imgNames.Richi
+                imageView.image = UIImage(named: images[2].imgName)
+                newKitty.imageName = images[2].imgName
         default:
             break;
         }
@@ -65,8 +69,6 @@ class AddViewController: UIViewController{
         }
         
         newKitty.name = nameTextField.text!
-        
-        newKitty.imageName = imgSegmentedControl.imageForSegment(at: imgSegmentedControl.selectedSegmentIndex)?.accessibilityIdentifier ?? "cat256"
         
         let realm = try! Realm()
         try! realm.write{
